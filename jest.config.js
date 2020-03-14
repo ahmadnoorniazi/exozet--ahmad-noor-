@@ -3,23 +3,23 @@ module.exports = {
   testEnvironment: 'jsdom',
   moduleNameMapper: {
     // module must come first
-    '\\.module\\.css$': 'identity-obj-proxy',
-    // '\\.css$': require.resolve('./src/__mock__/style-mock'),
+    '\\.module\\.scss$': 'identity-obj-proxy',
+    '\\.scss$': require.resolve('./src/__mock__/style-mock')
     // can also map files that are loaded by webpack with the file-loader
   },
   collectCoverageFrom: [
     '**/src/**/*.js',
     '!**/test__tests__/**',
-    '!**/node_modules/**',
+    '!**/node_modules/**'
   ],
   coverageThreshold: {
     global: {
-      statements: 18,
-      branches: 13,
-      functions: 19,
-      lines: 18,
-    },
+      statements: 80,
+      branches: 80,
+      functions: 80,
+      lines: 80
+    }
   },
   projects: ['./src'],
-  "setupFilesAfterEnv": ["./src/setupTests.js"]
+  setupFilesAfterEnv: ['./src/setupTests.js']
 }
