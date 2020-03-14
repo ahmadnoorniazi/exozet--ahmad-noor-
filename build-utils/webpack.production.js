@@ -7,7 +7,7 @@ const path = require('path')
 
 const PATHS = {
   src: path.join(__dirname, '../src/index.js'),
-  dist: path.join(__dirname, '../dist'),
+  dist: path.join(__dirname, '../dist')
 }
 
 module.exports = () => ({
@@ -15,10 +15,24 @@ module.exports = () => ({
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ]
       },
-    ],
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+      }
+    ]
   },
   devtool: 'source-map',
   optimization: {
@@ -32,7 +46,7 @@ module.exports = () => ({
             // into invalid ecma 5 code. This is why the 'compress' and 'output'
             // sections only apply transformations that are ecma 5 safe
             // https://github.com/facebook/create-react-app/pull/4234
-            ecma: 8,
+            ecma: 8
           },
           compress: {
             ecma: 5,
@@ -46,42 +60,42 @@ module.exports = () => ({
             // https://github.com/facebook/create-react-app/issues/5250
             // Pending futher investigation:
             // https://github.com/terser-js/terser/issues/120
-            inline: 2,
+            inline: 2
           },
           mangle: {
-            safari10: true,
+            safari10: true
           },
           output: {
             ecma: 5,
             comments: false,
             // Turned on because emoji and regex is not minified properly using default
             // https://github.com/facebook/create-react-app/issues/2488
-            ascii_only: true,
-          },
+            ascii_only: true
+          }
         },
         cache: true,
         parallel: true,
-        sourceMap: true, // Must be set to true if using source-maps in production
+        sourceMap: true // Must be set to true if using source-maps in production
       }),
-      new OptimizeCSSAssetsPlugin({}),
+      new OptimizeCSSAssetsPlugin({})
     ],
-    runtimeChunk: true,
+    runtimeChunk: true
   },
   plugins: [
     //minify css for production
     new MiniCssExtractPlugin({
       //minified filename
       filename: 'css/[name].css',
-      chunkFilename: 'css/[name].css',
+      chunkFilename: 'css/[name].css'
     }),
     new HtmlWebpackLoader({
       //make html file
-      template: './index.html',
+      template: path.join(__dirname, '../public/index.html')
     }),
     new webpack.DefinePlugin({
       PRODUCTION: JSON.stringify(true),
       VERSION: JSON.stringify('1.2.0'),
-      DEBUG: false,
-    }),
-  ],
+      DEBUG: false
+    })
+  ]
 })
