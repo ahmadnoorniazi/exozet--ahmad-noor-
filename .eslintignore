@@ -1,0 +1,6 @@
+/build/**
+/coverage/**
+/build-utils
+/webpack.config.js
+test.js
+!.eslintrc.js
