@@ -3,7 +3,7 @@ import '../public/scss/main.scss'
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom'
 import ErrorBoundary from './ErrorBoundries'
 
-const SearchBar = lazy(() => import('./layouts/InputBar'))
+const InputBar = lazy(() => import('./layouts/InputBar'))
 const ResumeDetails = lazy(() => import('./layouts/ResumeDetail'))
 
 function App () {
@@ -13,7 +13,7 @@ function App () {
         <Router>
           <ErrorBoundary>
             <Switch>
-              <Route exact path='/' component={SearchBar} />
+              <Route exact path='/' component={InputBar} />
               <Route
                 path='/:name'
                 component={props => (

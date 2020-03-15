@@ -5,3 +5,4 @@ npm-debug.log
 dist/
 *.swp
 coverage
+*__snapshots__
