@@ -1,28 +1,28 @@
-import React from 'react'
-import useFetch from '../fetchHook'
+import React from "react";
+import useFetch from "../fetchHook";
 import {
   getPopularRepos,
   calculateLanguagePercentage,
   getRepoApi,
   getUserApi
-} from '../utils'
-import UserDetails from './UserDetails'
-import LanguageDetails from './LanguageDetails'
-import RepoDetails from './RepoDetails'
+} from "../utils";
+import UserDetails from "./UserDetails";
+import LanguageDetails from "./LanguageDetails";
+import RepoDetails from "./RepoDetails";
 
-function ResumeDetails ({ name }) {
-  const [reposData, isError, isLoading] = useFetch(getRepoApi(name))
-  const [userData, isUserError, isUserLoading] = useFetch(getUserApi(name))
+function ResumeDetails({ name }) {
+  const [reposData, isError, isLoading] = useFetch(getRepoApi(name));
+  const [userData, isUserError, isUserLoading] = useFetch(getUserApi(name));
 
   if (isError || isUserError) {
-    return <h1>User Not Found</h1>
+    return <h1>User Not Found</h1>;
   }
 
   return (
     <main>
-      <section className='info'>
-        <div className='container'>
-          <div className='content-wrapper'>
+      <section className="info">
+        <div className="container">
+          <div className="content-wrapper">
             {/** Here we are using component Base Loaders */}
             {!isUserLoading && userData && Object.keys(userData).length ? (
               <UserDetails userData={userData} />
@@ -43,7 +43,7 @@ function ResumeDetails ({ name }) {
         </div>
       </section>
     </main>
-  )
+  );
 }
 
-export default ResumeDetails
+export default ResumeDetails;

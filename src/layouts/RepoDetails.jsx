@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
 
 const RepoDetails = ({ reposList }) => {
   return (
-    <div className='repo-holder'>
-      <h4 className='title'>Popular Repositories</h4>
-      <ul className='list-group'>
+    <div className="repo-holder">
+      <h4 className="title">Popular Repositories</h4>
+      <ul className="list-group">
         {reposList.map(
           ({
             name,
@@ -16,18 +16,20 @@ const RepoDetails = ({ reposList }) => {
             language,
             html_url
           }) => (
-            <li className='list-item' key={name}>
-              <div className='list-header'>
-                <h5 className='repo-name'>{name}</h5>
-                <div className='year-holder'>
-                  <span className='year'>{`${created_at} - ${updated_at}`}</span>
+            <li className="list-item" key={name}>
+              <div className="list-header">
+                <h5 className="repo-name">{name}</h5>
+                <div className="year-holder">
+                  <span role="contentinfo" className="year">
+                    {`${created_at} - ${updated_at}`}
+                  </span>
                 </div>
               </div>
-              <div className='list-title'>
-                <span>{`${language} - Public`}</span>
+              <div className="list-title">
+                <span role="contentinfo">{`${language} - Public`}</span>
               </div>
-              <div className='description-holder'>
-                <span className='description-title'>{description}</span>
+              <div className="description-holder">
+                <p className="description-title">{description}</p>
                 <p>
                   {`
                 This Repositary has ${stargazers_count} Starts and ${forks} folks. If you would
@@ -42,7 +44,7 @@ const RepoDetails = ({ reposList }) => {
         )}
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default RepoDetails
+export default RepoDetails;

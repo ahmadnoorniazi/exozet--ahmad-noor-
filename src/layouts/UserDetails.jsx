@@ -1,6 +1,8 @@
 import React from 'react'
 
-const UserDetails = ({userData: {name,followers, location, created_at, public_repos, html_url }}) => {
+const UserDetails = ({
+  userData: { name, followers, location, created_at, public_repos, html_url }
+}) => {
   return (
     <div className='content-header'>
       <h2>{name}</h2>
@@ -9,12 +11,18 @@ const UserDetails = ({userData: {name,followers, location, created_at, public_re
         {html_url}
       </a>
       <p className='description'>
-        {`On Github since ${new Date(created_at).getFullYear()}, ${name} is a developer based in
+        {`On Github since ${new Date(
+          created_at
+        ).getFullYear()}, ${name} is a developer based in
         ${location}with`}
-        <span className='text-primary'>{` ${public_repos} Public Repositories`}</span>
+        <span role='contentinfo' className='text-primary'>
+          {` ${public_repos} Public Repositories`}
+        </span>
         {' '}
         &
-        <span className='text-primary'>{` ${followers} followers`}</span>
+        <span role='contentinfo' className='text-primary'>
+          {` ${followers} followers`}
+        </span>
       </p>
     </div>
   )

@@ -32,7 +32,6 @@ body {
   color: gray;
   font-size: 16px;
   line-height: 1.5;
-  zoom: 150%;
 }
 
 .container {
@@ -266,6 +265,5 @@ header .card-body .d-flex .card-text {
 
 .info .content-body .list-item .description-holder .description-title {
   display: block;
-  margin: 0 0 10px;
 }
 /*# sourceMappingURL=main.css.map */

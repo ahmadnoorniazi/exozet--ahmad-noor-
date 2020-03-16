@@ -1,21 +1,21 @@
-import React, { lazy, Suspense } from 'react'
-import '../public/scss/main.scss'
-import { Switch, BrowserRouter as Router, Route } from 'react-router-dom'
-import ErrorBoundary from './ErrorBoundries'
+import React, { lazy, Suspense } from "react";
+import "../public/scss/main.scss";
+import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
+import ErrorBoundary from "./ErrorBoundries";
 
-const InputBar = lazy(() => import('./layouts/InputBar'))
-const ResumeDetails = lazy(() => import('./layouts/ResumeDetail'))
+const InputBar = lazy(() => import("./layouts/InputBar"));
+const ResumeDetails = lazy(() => import("./layouts/ResumeDetail"));
 
-function App () {
+function App() {
   return (
     <Suspense fallback={<h1>Loading...</h1>}>
-      <div id='wrapper'>
+      <div id="wrapper">
         <Router>
           <ErrorBoundary>
             <Switch>
-              <Route exact path='/' component={InputBar} />
+              <Route exact path="/" component={InputBar} />
               <Route
-                path='/:name'
+                path="/:name"
                 component={props => (
                   <ResumeDetails name={props.match.params.name} />
                 )}
@@ -25,7 +25,7 @@ function App () {
         </Router>
       </div>
     </Suspense>
-  )
+  );
 }
 
-export default App
+export default App;
