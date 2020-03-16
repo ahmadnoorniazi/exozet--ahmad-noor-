@@ -1,6 +1,6 @@
 ​exozet coding challange
 =====================
-### Live Demo  ``` [https://epic-mahavira-fc5bfc.netlify.com/](https://epic-mahavira-fc5bfc.netlify.com/)  ```
+### Live Demo  [https://epic-mahavira-fc5bfc.netlify.com/](https://epic-mahavira-fc5bfc.netlify.com/)
 
 ## Installation
 
